@@ -12,7 +12,7 @@ export default function Home() {
   const [ isVisible, makeVisible] = useState(false)
 
   const Editor = useMemo(
-    () => dynamic(() => import("@/components/editor"), {ssr: false}),
+    () => dynamic(() => import("@/components/Editor"), {ssr: false}),
     []
   )
 
