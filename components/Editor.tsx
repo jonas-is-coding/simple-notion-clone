@@ -4,6 +4,7 @@ import "@blocknote/core/fonts/inter.css"
 import "@blocknote/react/style.css"
 import { BlockNoteEditor, PartialBlock } from "@blocknote/core";
 import { useCreateBlockNote, BlockNoteView} from "@blocknote/react"
+import { uploadFiles } from "@/utils/uploadthing";
 
 interface EditorProps {
     onChange: () => void;
@@ -20,6 +21,10 @@ export default function Editor({
         initialContent: initialContent 
         ? (JSON.parse(initialContent) as PartialBlock[]) 
         : undefined,
+        uploadFile: async (file: File) => {
+            const [res] = await uploadFiles("imageUploader", {files: [file]});
+            return res.url
+        }
     })
     return (
         <div className="-mx-[54px] my-4">
