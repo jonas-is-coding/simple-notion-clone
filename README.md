@@ -1,1 +1,1 @@
-# Simple one pagw Notion clone
+# Simple one page Notion clone
